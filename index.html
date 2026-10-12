@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SnapTik Pro — TikTok Video Downloader (No Watermark)</title>
 <meta name="description" content="Download TikTok videos in HD — no watermark, no hassle! Free, fast, works on all devices.">
-<meta property="og:title" content="SnapTik Pro — TikTok Downloader">
-<meta property="og:description" content="Save TikTok videos without watermark. Free & unlimited.">
-<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1703665549716838" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +13,31 @@
 </head>
 <body>
 
+<div id="menuOverlay" class="overlay hidden"></div>
+<aside id="sideMenu">
+  <div class="menu-head"><b>📥 SnapTik Pro</b><button id="menuClose" class="icon-btn">✕</button></div>
+  <a href="#home">🏠 <span data-i="m_home">Home</span></a>
+  <a href="#home" id="mDl">🔗 <span data-i="m_dl">Downloader</span></a>
+  <a href="#favorites">🤍 <span data-i="m_fav">Favorites</span></a>
+  <a href="#history">🕐 <span data-i="m_hist">History</span></a>
+  <a href="#faq">❓ <span data-i="m_faq">FAQ</span></a>
+</aside>
+
 <header class="topbar">
-  <button class="icon-btn" aria-label="menu">☰</button>
+  <button class="icon-btn" id="menuBtn" aria-label="menu">☰</button>
   <div class="brand">
     <span class="brand-logo">🎵</span>
     <div><b>SnapTik Pro</b><small>Download • Save • Enjoy</small></div>
   </div>
   <div class="top-right">
-    <button class="icon-btn" aria-label="theme">🌙</button>
-    <button class="lang">EN ▾</button>
+    <button class="icon-btn" id="themeBtn" aria-label="theme">🌙</button>
+    <div class="langwrap">
+      <button class="lang" id="langBtn">EN ▾</button>
+      <div id="langMenu" class="dropdown hidden">
+        <button data-lang="en">🇬🇧 English</button>
+        <button data-lang="ur">🇵🇰 اردو</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -32,23 +45,21 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-text">
-      <h1>TikTok Video<br><span class="grad">Downloader</span></h1>
-      <p class="sub">Download TikTok videos in HD quality<br>— no watermark, no hassle!</p>
+      <h1><span data-i="h1a">TikTok Video</span><br><span class="grad" data-i="h1b">Downloader</span></h1>
+      <p class="sub"><span data-i="sub1">Download TikTok videos in HD quality</span><br><span data-i="sub2">— no watermark, no hassle!</span></p>
       <div class="badges">
-        <span>⚡ HD Quality</span><span>🛡️ No Watermark</span>
-        <span>⚡ Fast Download</span><span>📲 All Devices</span>
+        <span data-i="b1">⚡ HD Quality</span><span data-i="b2">🛡️ No Watermark</span>
+        <span data-i="b3">⚡ Fast Download</span><span data-i="b4">📲 All Devices</span>
       </div>
-      <div class="dlbar">
+      <div class="dlbar" id="dlbar">
         <span class="link-ico">🔗</span>
-        <input id="url" type="url" placeholder="Paste TikTok video link here…">
-        <button id="fetch">⬇️ Download →</button>
+        <input id="url" type="url" data-i-ph="ph" placeholder="Paste TikTok video link here…">
+        <button id="fetch"><span data-i="dlbtn">⬇️ Download →</span></button>
       </div>
       <p class="example">Example: https://www.tiktok.com/@username/video/1234567890</p>
-      <div class="row2">
-        <button id="paste" class="ghost">📋 Paste from clipboard</button>
-      </div>
+      <div class="row2"><button id="paste" class="ghost">📋 <span data-i="paste">Paste from clipboard</span></button></div>
       <div id="err" class="err hidden"></div>
-      <div id="loading" class="hidden"><div class="spin"></div><p>Fetching video…</p></div>
+      <div id="loading" class="hidden"><div class="spin"></div><p data-i="fetching">Fetching video…</p></div>
 
       <div id="result" class="result hidden">
         <div class="res-card">
@@ -57,11 +68,12 @@
             <img id="avatar" alt="">
             <div><b id="author"></b><p id="title" class="muted"></p>
             <p class="stats"><span id="likes"></span> · <span id="comments"></span> · <span id="shares"></span></p></div>
+            <button id="favBtn" class="icon-btn" title="Save to favorites">🤍</button>
           </div>
           <div class="dl-btns">
-            <button id="dlHd" class="dl hd">🎬 HD — No Watermark</button>
-            <button id="dlWm" class="dl">🎥 With Watermark</button>
-            <button id="dlMp3" class="dl">🎵 MP3 Audio</button>
+            <button id="dlHd" class="dl hd">🎬 <span data-i="hd">HD — No Watermark</span></button>
+            <button id="dlWm" class="dl">🎥 <span data-i="wm">With Watermark</span></button>
+            <button id="dlMp3" class="dl">🎵 <span data-i="mp3">MP3 Audio</span></button>
           </div>
         </div>
       </div>
@@ -70,39 +82,49 @@
   </section>
 
   <!-- FEATURES -->
-  <section class="section">
+  <section class="section" id="features">
     <div class="feat-grid">
-      <div class="feat"><span class="fic pink">💎</span><b>No Watermark</b><p>Get clean videos without any TikTok watermark.</p></div>
-      <div class="feat"><span class="fic purple">HD</span><b>HD Quality</b><p>Download in HD, Full HD & 4K quality.</p></div>
-      <div class="feat"><span class="fic blue">⚡</span><b>Fast & Easy</b><p>Quick download with one click.</p></div>
-      <div class="feat"><span class="fic green">📲</span><b>Multiple Formats</b><p>MP4, MP3 (Audio) and more formats.</p></div>
-      <div class="feat"><span class="fic orange">📱</span><b>Works on All Devices</b><p>Mobile, Tablet, Desktop — everywhere.</p></div>
-      <div class="feat"><span class="fic pink">🎁</span><b>100% Free</b><p>No hidden charges. Always free.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic pink">💎</span><b data-i="f1t">No Watermark</b><p data-i="f1d">Get clean videos without any TikTok watermark.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic purple">HD</span><b data-i="f2t">HD Quality</b><p data-i="f2d">Download in HD, Full HD & 4K quality.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic blue">⚡</span><b data-i="f3t">Fast & Easy</b><p data-i="f3d">Quick download with one click.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic green">📲</span><b data-i="f4t">Multiple Formats</b><p data-i="f4d">MP4, MP3 (Audio) and more formats.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic orange">📱</span><b data-i="f5t">Works on All Devices</b><p data-i="f5d">Mobile, Tablet, Desktop — everywhere.</p></div>
+      <div class="feat" data-go="dlbar"><span class="fic pink">🎁</span><b data-i="f6t">100% Free</b><p data-i="f6d">No hidden charges. Always free.</p></div>
     </div>
   </section>
 
+  <!-- FAVORITES -->
+  <section class="section" id="favorites">
+    <h2>🤍 <span data-i="favt">My Favorites</span></h2>
+    <div id="favGrid" class="trend-grid"></div>
+    <p id="favEmpty" class="muted" data-i="favempty">No favorites yet — tap 🤍 on any video to save it here!</p>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="section" id="history">
+    <h2>🕐 <span data-i="histt">Download History</span></h2>
+    <div id="histList" class="hist-list"></div>
+    <p id="histEmpty" class="muted" data-i="histempty">Nothing downloaded yet.</p>
+    <button id="clearHist" class="ghost hidden">🗑️ <span data-i="clear">Clear history</span></button>
+  </section>
+
   <!-- TRENDING -->
-  <section class="section">
+  <section class="section" id="trending">
     <div class="trend-card">
       <div class="trend-head">
-        <div><span class="fic orange">🔥</span><b> Trending</b><p class="muted">Check out the most popular TikTok videos!</p></div>
-        <button class="ghost">View More →</button>
+        <div><span class="fic orange">🔥</span><b> <span data-i="trt">Trending</span></b><p class="muted" data-i="trd">Check out the most popular TikTok videos!</p></div>
+        <button class="ghost" id="viewMore"><span data-i="vm">View More →</span></button>
       </div>
-      <div class="trend-grid">
-        <div class="tcard"><img src="https://picsum.photos/seed/tk1/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 1.4M</span><em class="tag">Trending</em></div>
-        <div class="tcard"><img src="https://picsum.photos/seed/tk2/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 2.3M</span><em class="tag blue">Nature</em></div>
-        <div class="tcard"><img src="https://picsum.photos/seed/tk3/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 987K</span><em class="tag purple">Cute</em></div>
-        <div class="tcard"><img src="https://picsum.photos/seed/tk4/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 1.8M</span><em class="tag orange">Motivation</em></div>
-      </div>
+      <div class="trend-grid" id="trendGrid"></div>
     </div>
   </section>
 
   <!-- PREMIUM -->
   <section class="section">
     <div class="premium">
-      <div><span class="fic dark">👑</span><b>Go Premium</b><p>Unlock more features and enjoy an ad-free experience!</p>
-      <p class="checks">✓ Faster downloads &nbsp; ✓ No ads &nbsp; ✓ Premium support &nbsp; ✓ More features</p></div>
-      <button class="prem-btn">👑 Get Premium →</button>
+      <div><span class="fic dark">👑</span><b data-i="pt">Go Premium</b><p data-i="pd">Unlock more features and enjoy an ad-free experience!</p>
+      <p class="checks">✓ <span data-i="p1">Faster downloads</span> &nbsp; ✓ <span data-i="p2">No ads</span> &nbsp; ✓ <span data-i="p3">Premium support</span></p></div>
+      <button class="prem-btn" id="premBtn">👑 <span data-i="pb">Get Premium →</span></button>
     </div>
   </section>
 
@@ -116,12 +138,38 @@
   </section>
 </main>
 
+<!-- PREMIUM MODAL -->
+<div id="premModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="icon-btn mclose" data-close="premModal">✕</button>
+    <h2>👑 Go Premium</h2>
+    <div class="plan"><b>Monthly</b><span>$2.99/mo</span><button class="dl hd" data-plan="monthly">Choose</button></div>
+    <div class="plan hot"><b>Yearly ⭐</b><span>$19.99/yr</span><button class="dl hd" data-plan="yearly">Choose</button></div>
+    <p class="muted">✓ Ad-free ✓ Faster downloads ✓ Priority support</p>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div id="profModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="icon-btn mclose" data-close="profModal">✕</button>
+    <h2>👤 Profile</h2>
+    <div class="pstats">
+      <div><b id="stDl">0</b><small>Downloads</small></div>
+      <div><b id="stFav">0</b><small>Favorites</small></div>
+    </div>
+    <p class="muted">Your data stays on this device. 🔒</p>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
 <nav class="bottomnav">
-  <a href="#home" class="active">🏠<small>Home</small></a>
-  <a href="#home">🔗<small>Downloader</small></a>
-  <a href="#faq">🤍<small>Favorites</small></a>
-  <a href="#faq">🕐<small>History</small></a>
-  <a href="#faq">👤<small>Profile</small></a>
+  <a href="#home" data-nav="home" class="active">🏠<small data-i="n1">Home</small></a>
+  <a href="#dlbar" data-nav="dl">🔗<small data-i="n2">Downloader</small></a>
+  <a href="#favorites" data-nav="fav">🤍<small data-i="n3">Favorites</small></a>
+  <a href="#history" data-nav="hist">🕐<small data-i="n4">History</small></a>
+  <a href="#" data-nav="prof" id="profBtn">👤<small data-i="n5">Profile</small></a>
 </nav>
 
 <footer><p>📥 SnapTik Pro — Free TikTok Downloader</p><p class="muted">For personal use. Respect creators' rights.</p></footer>
