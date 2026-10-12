@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SnapTik Pro — TikTok Video Downloader (No Watermark)</title>
-<meta name="description" content="Download TikTok videos without watermark in HD. Free, fast, no signup. Also download MP3 audio.">
+<meta name="description" content="Download TikTok videos in HD — no watermark, no hassle! Free, fast, works on all devices.">
 <meta property="og:title" content="SnapTik Pro — TikTok Downloader">
 <meta property="og:description" content="Save TikTok videos without watermark. Free & unlimited.">
 <meta property="og:type" content="website">
@@ -15,63 +15,99 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav">
-  <div class="nav-inner">
-    <div class="logo">📥 <span>SnapTik Pro</span></div>
-    <div class="nav-links">
-      <a href="#dl">Download</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
-    </div>
+
+<header class="topbar">
+  <button class="icon-btn" aria-label="menu">☰</button>
+  <div class="brand">
+    <span class="brand-logo">🎵</span>
+    <div><b>SnapTik Pro</b><small>Download • Save • Enjoy</small></div>
+  </div>
+  <div class="top-right">
+    <button class="icon-btn" aria-label="theme">🌙</button>
+    <button class="lang">EN ▾</button>
   </div>
 </header>
 
 <main>
-  <section id="dl" class="hero">
-    <h1>TikTok Downloader <span class="grad">No Watermark</span></h1>
-    <p class="sub">Paste a TikTok link → download HD video or MP3. Free, unlimited, no signup.</p>
-
-    <div class="dl-card">
-      <div class="input-row">
-        <input id="url" type="url" placeholder="Paste TikTok video link here…">
-        <button id="paste">📋 Paste</button>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>TikTok Video<br><span class="grad">Downloader</span></h1>
+      <p class="sub">Download TikTok videos in HD quality<br>— no watermark, no hassle!</p>
+      <div class="badges">
+        <span>⚡ HD Quality</span><span>🛡️ No Watermark</span>
+        <span>⚡ Fast Download</span><span>📲 All Devices</span>
       </div>
-      <button id="fetch" class="go-btn">⬇️ Download</button>
+      <div class="dlbar">
+        <span class="link-ico">🔗</span>
+        <input id="url" type="url" placeholder="Paste TikTok video link here…">
+        <button id="fetch">⬇️ Download →</button>
+      </div>
+      <p class="example">Example: https://www.tiktok.com/@username/video/1234567890</p>
+      <div class="row2">
+        <button id="paste" class="ghost">📋 Paste from clipboard</button>
+      </div>
       <div id="err" class="err hidden"></div>
-    </div>
+      <div id="loading" class="hidden"><div class="spin"></div><p>Fetching video…</p></div>
 
-    <div id="result" class="result hidden">
-      <div class="res-card">
-        <video id="preview" controls playsinline></video>
-        <div class="meta">
-          <img id="avatar" alt="">
-          <div>
-            <b id="author"></b>
-            <p id="title" class="muted"></p>
-            <p class="stats"><span id="likes"></span> · <span id="comments"></span> · <span id="shares"></span></p>
+      <div id="result" class="result hidden">
+        <div class="res-card">
+          <video id="preview" controls playsinline></video>
+          <div class="meta">
+            <img id="avatar" alt="">
+            <div><b id="author"></b><p id="title" class="muted"></p>
+            <p class="stats"><span id="likes"></span> · <span id="comments"></span> · <span id="shares"></span></p></div>
+          </div>
+          <div class="dl-btns">
+            <button id="dlHd" class="dl hd">🎬 HD — No Watermark</button>
+            <button id="dlWm" class="dl">🎥 With Watermark</button>
+            <button id="dlMp3" class="dl">🎵 MP3 Audio</button>
           </div>
         </div>
-        <div class="dl-btns">
-          <button id="dlHd" class="dl hd">🎬 HD — No Watermark</button>
-          <button id="dlWm" class="dl">🎥 With Watermark</button>
-          <button id="dlMp3" class="dl">🎵 MP3 Audio</button>
-        </div>
       </div>
     </div>
-
-    <div id="loading" class="hidden"><div class="spin"></div><p>Fetching video…</p></div>
+    <div class="hero-art"><img src="hero-art.webp" alt="Download TikTok videos"></div>
   </section>
 
-  <section id="how" class="section">
-    <h2>⚡ How it works</h2>
-    <div class="steps">
-      <div class="step"><span>1</span><b>Copy link</b><p>Open TikTok → Share → Copy link</p></div>
-      <div class="step"><span>2</span><b>Paste here</b><p>Paste the link in the box above</p></div>
-      <div class="step"><span>3</span><b>Download</b><p>Pick HD video or MP3 — done!</p></div>
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="feat-grid">
+      <div class="feat"><span class="fic pink">💎</span><b>No Watermark</b><p>Get clean videos without any TikTok watermark.</p></div>
+      <div class="feat"><span class="fic purple">HD</span><b>HD Quality</b><p>Download in HD, Full HD & 4K quality.</p></div>
+      <div class="feat"><span class="fic blue">⚡</span><b>Fast & Easy</b><p>Quick download with one click.</p></div>
+      <div class="feat"><span class="fic green">📲</span><b>Multiple Formats</b><p>MP4, MP3 (Audio) and more formats.</p></div>
+      <div class="feat"><span class="fic orange">📱</span><b>Works on All Devices</b><p>Mobile, Tablet, Desktop — everywhere.</p></div>
+      <div class="feat"><span class="fic pink">🎁</span><b>100% Free</b><p>No hidden charges. Always free.</p></div>
     </div>
   </section>
 
-  <section id="faq" class="section">
+  <!-- TRENDING -->
+  <section class="section">
+    <div class="trend-card">
+      <div class="trend-head">
+        <div><span class="fic orange">🔥</span><b> Trending</b><p class="muted">Check out the most popular TikTok videos!</p></div>
+        <button class="ghost">View More →</button>
+      </div>
+      <div class="trend-grid">
+        <div class="tcard"><img src="https://picsum.photos/seed/tk1/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 1.4M</span><em class="tag">Trending</em></div>
+        <div class="tcard"><img src="https://picsum.photos/seed/tk2/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 2.3M</span><em class="tag blue">Nature</em></div>
+        <div class="tcard"><img src="https://picsum.photos/seed/tk3/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 987K</span><em class="tag purple">Cute</em></div>
+        <div class="tcard"><img src="https://picsum.photos/seed/tk4/300/400" loading="lazy" alt=""><span class="play">▶</span><span class="views">▷ 1.8M</span><em class="tag orange">Motivation</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
+  <section class="section">
+    <div class="premium">
+      <div><span class="fic dark">👑</span><b>Go Premium</b><p>Unlock more features and enjoy an ad-free experience!</p>
+      <p class="checks">✓ Faster downloads &nbsp; ✓ No ads &nbsp; ✓ Premium support &nbsp; ✓ More features</p></div>
+      <button class="prem-btn">👑 Get Premium →</button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
     <h2>❓ FAQ</h2>
     <div class="faq-item"><b>Is it free?</b><p>Yes — unlimited downloads, no account needed.</p></div>
     <div class="faq-item"><b>Is there really no watermark?</b><p>Correct. The HD option downloads the clean original video.</p></div>
@@ -80,11 +116,15 @@
   </section>
 </main>
 
-<footer>
-  <p>📥 SnapTik Pro — Free TikTok Downloader</p>
-  <p class="muted">For personal use. Respect creators' rights.</p>
-</footer>
+<nav class="bottomnav">
+  <a href="#home" class="active">🏠<small>Home</small></a>
+  <a href="#home">🔗<small>Downloader</small></a>
+  <a href="#faq">🤍<small>Favorites</small></a>
+  <a href="#faq">🕐<small>History</small></a>
+  <a href="#faq">👤<small>Profile</small></a>
+</nav>
 
+<footer><p>📥 SnapTik Pro — Free TikTok Downloader</p><p class="muted">For personal use. Respect creators' rights.</p></footer>
 <script src="app.js"></script>
 </body>
 </html>
