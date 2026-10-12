@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapTik Pro — TikTok Video Downloader (No Watermark)</title>
+<meta name="description" content="Download TikTok videos without watermark in HD. Free, fast, no signup. Also download MP3 audio.">
+<meta property="og:title" content="SnapTik Pro — TikTok Downloader">
+<meta property="og:description" content="Save TikTok videos without watermark. Free & unlimited.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1703665549716838" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">📥 <span>SnapTik Pro</span></div>
+    <div class="nav-links">
+      <a href="#dl">Download</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="dl" class="hero">
+    <h1>TikTok Downloader <span class="grad">No Watermark</span></h1>
+    <p class="sub">Paste a TikTok link → download HD video or MP3. Free, unlimited, no signup.</p>
+
+    <div class="dl-card">
+      <div class="input-row">
+        <input id="url" type="url" placeholder="Paste TikTok video link here…">
+        <button id="paste">📋 Paste</button>
+      </div>
+      <button id="fetch" class="go-btn">⬇️ Download</button>
+      <div id="err" class="err hidden"></div>
+    </div>
+
+    <div id="result" class="result hidden">
+      <div class="res-card">
+        <video id="preview" controls playsinline></video>
+        <div class="meta">
+          <img id="avatar" alt="">
+          <div>
+            <b id="author"></b>
+            <p id="title" class="muted"></p>
+            <p class="stats"><span id="likes"></span> · <span id="comments"></span> · <span id="shares"></span></p>
+          </div>
+        </div>
+        <div class="dl-btns">
+          <button id="dlHd" class="dl hd">🎬 HD — No Watermark</button>
+          <button id="dlWm" class="dl">🎥 With Watermark</button>
+          <button id="dlMp3" class="dl">🎵 MP3 Audio</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="hidden"><div class="spin"></div><p>Fetching video…</p></div>
+  </section>
+
+  <section id="how" class="section">
+    <h2>⚡ How it works</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><b>Copy link</b><p>Open TikTok → Share → Copy link</p></div>
+      <div class="step"><span>2</span><b>Paste here</b><p>Paste the link in the box above</p></div>
+      <div class="step"><span>3</span><b>Download</b><p>Pick HD video or MP3 — done!</p></div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item"><b>Is it free?</b><p>Yes — unlimited downloads, no account needed.</p></div>
+    <div class="faq-item"><b>Is there really no watermark?</b><p>Correct. The HD option downloads the clean original video.</p></div>
+    <div class="faq-item"><b>Does it work on mobile?</b><p>Yes — works in any mobile or desktop browser.</p></div>
+    <div class="faq-item"><b>Where are my videos saved?</b><p>We never store your videos. Everything happens in your browser.</p></div>
+  </section>
+</main>
+
+<footer>
+  <p>📥 SnapTik Pro — Free TikTok Downloader</p>
+  <p class="muted">For personal use. Respect creators' rights.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
